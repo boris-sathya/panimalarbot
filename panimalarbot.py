@@ -5,6 +5,7 @@ import pickle
 import re
 global match, api, msg
 import random
+msg = ''
 
 #RegEx for parsing twitter handle from retrived mentions
 handle = re.compile(
@@ -44,17 +45,24 @@ def get_and_post_replies():
         for match in handle.findall(repl[i].text):
             if(match=="panimalarbot"):
                 pass
+        print "match is", match
         extract_handle()
         localtime = time.asctime(time.localtime(time.time()))
         msg_to_post = "@"+repl[i].user.screen_name+" "+msg
-        api.PostUpdate(msg_to_post, in_reply_to_status_id=repl[i].id)
-        i = i+1
-        newID = int(repl[i].id)
+        try:
+            api.PostUpdate(msg_to_post, in_reply_to_status_id=repl[i].id)
+            i = i+1
+            newID = int(repl[i].id)
+        except twitter.TwitterError:
+            print "Duplicate Err"
+            oldID = str(repl[0].id)
+            fileObj.seek(0)
+            fileObj.write(oldID)
+            return
     oldID = str(repl[0].id)
     fileObj.seek(0)
     fileObj.write(oldID)
     print "No job, Master!"
-
 
 authenticate()
 while(1):

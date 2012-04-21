@@ -10,3 +10,11 @@ name:
       response:
         - "@boris_sathya is my God, so no comments about him :D"
         - "@boris_sathya aham bramashmi" 
+
+    - handle: panimalarbot
+      response:
+        - "What do you expect me to say ?"
+        - "what would do, if i say i won't"
+        - "I don't know"
+        - "I don't have access to wolfram alpha db, its unfair to expect an answer from me"
+     
