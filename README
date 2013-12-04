@@ -1,6 +1,5 @@
 @panimalarbot, this is absolutely bulit from scratch by sathya prakash and
-kabilan on due course of learning python. so it might be even inefficient,
-but it works :D.
+kabilan on due course of learning python.
 
 Dependencies Needed: 
    Python-Twitter wrapper http://code.google.com/p/python-twitter/
@@ -11,4 +10,4 @@ Required Files:
        |__________ access keys and tokens of your bot application
    
    response.yaml
-      |____________ User defined responses, the fun part :D 
+      |____________ User defined responses, the fun part
